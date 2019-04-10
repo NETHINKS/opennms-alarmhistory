@@ -1,0 +1,13 @@
+    <!-- START: CUSTOMIZING -->
+    <automation name="clearAlarmHistory" active="true"
+                interval="600000"
+                action-name="deleteOldAlarmsFromHistory" />
+    <!-- END: CUSTOMIZING -->
+
+    <!-- START: CUSTOMIZING -->
+    <action name="deleteOldAlarmsFromHistory" >
+      <statement>
+        DELETE FROM alarms_history where time_alarm_removed &lt; NOW() - interval '45 days'
+      </statement>
+    </action>
+    <!-- END: CUSTOMIZING -->
